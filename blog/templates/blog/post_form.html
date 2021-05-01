@@ -1,0 +1,30 @@
+{% extends "blog/base.html" %}
+{% block header %}
+<header class="masthead" style="background-color: #36454F">
+  <div class="overlay"></div>
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+              <div class="page-heading"  style='font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";'>
+                  Django-Blog Post-Update   
+              </div>
+          </div>
+      </div>
+  </div>
+</header>
+{% endblock header %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Blog Post</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Post</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
